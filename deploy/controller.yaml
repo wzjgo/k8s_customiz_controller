@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: crd-student-controller
+  name: crd-student-controller
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: crd-student-controller
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: crd-student-controller
+    spec:
+      containers:
+        - name: crd-student-controller
+          image: wzjgo/crd-student:0.2
